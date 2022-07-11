@@ -4,7 +4,7 @@ node {
         checkout scm
     }
     stage('Build image') {
-       app = docker.build("dhkoo/test")
+       app = docker.build("dhkoo93/test")
     }
     stage('Test image') {
         app.inside {
@@ -19,6 +19,6 @@ node {
     
     stage('Trigger ManifestUpdate') {
         echo "triggering updatemanifestjob"
-        build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+        build job: 'updateManifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
     }
 }
