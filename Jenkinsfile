@@ -4,7 +4,7 @@ node {
         checkout scm
     }
     stage('Build image') {
-       app = docker.build("raj80dockerid/test")
+       app = docker.build("dhkoo/test")
     }
     stage('Test image') {
         app.inside {
